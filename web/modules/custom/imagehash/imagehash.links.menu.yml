@@ -1,0 +1,5 @@
+imagehash.admin:
+  title: 'Image hash'
+  parent: system.admin_config_media
+  description: 'Configure image hash settings.'
+  route_name: imagehash.admin

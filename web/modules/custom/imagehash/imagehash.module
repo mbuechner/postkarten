@@ -1,0 +1,314 @@
+<?php
+
+/**
+ * @file
+ * Generate hashes for each uploaded image file.
+ */
+
+use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
+use Drupal\Component\Plugin\Exception\PluginNotFoundException;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\file\Entity\File;
+use Drupal\file\FileInterface;
+use Drupal\imagehash\TypedData\ImageHashComputed;
+use Jenssegers\ImageHash\ImageHash;
+use Jenssegers\ImageHash\Implementations\AverageHash;
+use Jenssegers\ImageHash\Implementations\BlockHash;
+use Jenssegers\ImageHash\Implementations\DifferenceHash;
+use Jenssegers\ImageHash\Implementations\PerceptualHash;
+
+/**
+ * Implements hook_help().
+ */
+function imagehash_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.imagehash':
+      return [
+        '#type' => 'html_tag',
+        '#tag' => 'p',
+        '#value' => t('File Hash module generates and stores Average, Difference and/or Perceptual hashes for each image uploaded to the site. Hashes allow files to be uniquely identified, duplicate files to be detected, and copies to be verified against the original source.'),
+      ];
+  }
+}
+
+/**
+ * Returns array of enabled hash algorithms.
+ */
+function imagehash_algos() {
+  return array_diff(Drupal::config('imagehash.settings')->get('algos'), [0]);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_create().
+ *
+ * @param EntityInterface $file
+ */
+function imagehash_file_create(EntityInterface $file) {
+  imagehash_hash($file);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_delete().
+ *
+ * @param EntityInterface $file
+ */
+function imagehash_file_delete(EntityInterface $file) {
+  Drupal::database()
+    ->delete('imagehash')
+    ->condition('fid', $file->id())
+    ->execute();
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ *
+ * @param EntityInterface $file
+ *
+ * @throws Exception
+ */
+function imagehash_file_insert(EntityInterface $file) {
+  imagehash_save($file);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_load().
+ *
+ * @param $files
+ *
+ * @throws Exception
+ */
+function imagehash_file_load($files) {
+  $algos = imagehash_algos();
+  if (!$algos) {
+    return;
+  }
+  $result = Drupal::database()
+    ->select('imagehash')
+    ->fields('imagehash')
+    ->condition('fid', array_keys($files), 'IN')
+    ->execute();
+  foreach ($result as $record) {
+    foreach ($algos as $algo) {
+      $files[$record->fid]->imagehash[$algo] = $record->$algo;
+    }
+  }
+  // Generate hash if it does not already exist for the file.
+  foreach ($files as $fid => $file) {
+    foreach ($algos as $algo) {
+      if (empty($file->imagehash[$algo])) {
+        imagehash_hash($files[$fid]);
+        imagehash_save($files[$fid]);
+        break;
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ *
+ * @param EntityInterface $file
+ */
+function imagehash_file_presave(EntityInterface $entity) {
+  imagehash_hash($entity);
+
+  /**
+   * Implements hook_ENTITY_TYPE_presave().
+   */
+  if ($entity->bundle() === 'node') {
+    // Add the profile entity's completeness field value.
+    $completeness = 0;
+
+    // Check expertise field.
+    $field_profile_expertise = $entity->get('field_profile_expertise')
+      ->isEmpty();
+    if (!$field_profile_expertise) {
+      $completeness += 0.2;
+    }
+
+    // Other field calculations.
+    $entity->set('completeness', $completeness);
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ *
+ * @param EntityInterface $file
+ *
+ * @throws Exception
+ */
+function imagehash_file_update(EntityInterface $file) {
+  imagehash_save($file);
+}
+
+/**
+ * Calculates the file hashes.
+ *
+ * @param FileInterface $file
+ */
+function imagehash_hash(FileInterface $file) {
+  $file->imagehash = array_fill_keys([
+    'difference',
+    'average',
+    'block',
+    'perceptual',
+  ], NULL);
+  // Unreadable files will have NULL hash values.
+  if (!is_readable($file->getFileUri()) && !file_validate_is_image($file->getFileUri())) {
+    return;
+  }
+  $averageHasher = NULL;
+  $differenceHasher = NULL;
+  $blockHasher = NULL;
+  $perceptualHasher = NULL;
+  foreach (imagehash_algos() as $algo) {
+    $hash = NULL;
+    switch ($algo) {
+      case 'average':
+        if (!isset($averageHasher)) {
+          $averageHasher = new ImageHash(new AverageHash());
+        }
+        $hash = $averageHasher->hash($file->getFileUri());
+        break;
+      case 'block':
+        if (!isset($blockHasher)) {
+          $blockHasher = new ImageHash(new BlockHash());
+        }
+        $hash = $blockHasher->hash($file->getFileUri());
+        break;
+      case 'difference':
+        if (!isset($differenceHasher)) {
+          $differenceHasher = new ImageHash(new DifferenceHash());
+        }
+        $hash = $differenceHasher->hash($file->getFileUri());
+        break;
+      case 'perceptual':
+        if (!isset($perceptualHasher)) {
+          $perceptualHasher = new ImageHash(new PerceptualHash());
+        }
+        $hash = $perceptualHasher->hash($file->getFileUri());
+        break;
+      default:
+        break;
+    }
+
+    $file->imagehash[$algo] = hexdec($hash->toHex());
+  }
+}
+
+/**
+ * Returns array of human-readable hash algorithm names.
+ */
+function imagehash_names() {
+  return [
+    'difference' => t('Difference Image Hash (recommended)'),
+    'average' => t('Average Image Hash'),
+    'block' => t('Block Image Hash (experimental)'),
+    'perceptual' => t('Perceptual Image Hash (experimental)'),
+  ];
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_build_defaults_alter().
+ *
+ * @param array $build
+ * @param EntityInterface $node
+ * @param string $view_mode
+ * @param null $langcode
+ *
+ * @throws InvalidPluginDefinitionException
+ * @throws PluginNotFoundException
+ */
+function imagehash_node_build_defaults_alter(array &$build, EntityInterface $node, $view_mode = 'full', $langcode = NULL) {
+  if ($view_mode != 'rss') {
+    return;
+  }
+  // The <media:hash> element only supports MD5 and SHA-1.
+  // TODO
+  /*$algos = imagehash_algos();
+  if (!isset($algos['md5']) && !isset($algos['sha1'])) {
+    return;
+  }*/
+  // The following field types are currently supported.
+  $fields = Drupal::entityTypeManager()
+    ->getStorage('field_config')
+    ->loadByProperties([
+      'entity_type' => 'node',
+      'bundle' => $node->bundle(),
+      'field_type' => 'file',
+    ]);
+  $fields = Drupal::entityTypeManager()
+    ->getStorage('field_config')
+    ->loadByProperties([
+      'entity_type' => 'node',
+      'bundle' => $node->bundle(),
+      'field_type' => 'image',
+    ]);
+  foreach ($fields as $field) {
+    foreach ($node->{$field->getName()} as $item) {
+      if ($item->isDisplayed()) {
+        // Add <media:hash> elements for at most one file per RSS item.
+        $file = File::load($item->target_id);
+        imagehash_rss_elements($file, $node);
+        return;
+      }
+    }
+  }
+}
+
+/**
+ * Adds <media:hash> RSS elements to $node object.
+ *
+ * @param $file
+ * @param $node
+ */
+function imagehash_rss_elements($file, $node) {
+  $names = [
+    'difference' => 'difference',
+    'average' => 'average',
+    'block' => 'block',
+    'perceptual' => 'perceptual',
+  ];
+  foreach ($names as $algo => $name) {
+    if (!empty($file->imagehash[$algo])) {
+      $node->rss_elements[] = [
+        'key' => 'media:hash',
+        'attributes' => ['algo' => $name],
+        'value' => $file->imagehash[$algo],
+      ];
+    }
+  }
+  $node->rss_namespaces['xmlns:media'] = 'http://search.yahoo.com/mrss/';
+}
+
+/**
+ * Saves the file hashes.
+ *
+ * @param FileInterface $file
+ *
+ * @throws Exception
+ */
+function imagehash_save(FileInterface $file) {
+  Drupal::database()
+    ->merge('imagehash')
+    ->key(['fid' => $file->id()])
+    ->fields($file->imagehash)
+    ->execute();
+}
+
+/**
+ * Implements hook_entity_base_field_info_alter().
+ */
+function imagehash_entity_base_field_info_alter(&$fields, EntityTypeInterface $entity_type) {
+  if ($entity_type->id() === "node") {
+    $fields['my_computed_field'] = BaseFieldDefinition::create('string')
+      ->setName('my_computed_field')
+      ->setLabel(t('My computed field'))
+      ->setComputed(TRUE)
+      ->setClass(ImageHashComputed::class);
+  }
+}

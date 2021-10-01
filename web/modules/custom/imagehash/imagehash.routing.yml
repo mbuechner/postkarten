@@ -1,0 +1,15 @@
+imagehash.admin:
+  path: '/admin/config/media/imagehash'
+  defaults:
+    _form: 'Drupal\imagehash\Form\ImageHashConfigForm'
+    _title: 'Image file hash settings'
+  requirements:
+    _permission: 'administer site configuration'
+
+imagehash.generate:
+  path: '/admin/config/media/imagehash/generate'
+  defaults:
+    _form: 'Drupal\imagehash\Form\ImageHashGenerateForm'
+    _title: 'Generate'
+  requirements:
+    _permission: 'administer site configuration'

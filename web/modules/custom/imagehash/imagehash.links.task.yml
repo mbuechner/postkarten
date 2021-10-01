@@ -1,0 +1,9 @@
+imagehash.admin:
+  route_name: imagehash.admin
+  title: Configure
+  base_route: imagehash.admin
+
+imagehash.generate:
+  route_name: imagehash.generate
+  title: Generate
+  base_route: imagehash.admin

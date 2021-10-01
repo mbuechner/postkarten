@@ -1,0 +1,64 @@
+<?php
+
+/**
+ * @file
+ * Schema function for image file hash module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function imagehash_schema() {
+  $schema['imagehash'] = [
+    'description' => 'Store hashes for each uploaded image file.',
+    'fields' => [
+      'fid' => [
+        'description' => 'Primary key: {file_managed}.fid.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'difference' => [
+        'description' => 'Hash based on the previous pixel.',
+        'type' => 'float',
+        'unsigned' => TRUE,
+        'size' => 'big',
+        'not null' => FALSE,
+      ],
+      'average' => [
+        'description' => 'Hash based the average image color.',
+        'type' => 'float',
+        'unsigned' => TRUE,
+        'size' => 'big',
+        'not null' => FALSE,
+      ],
+      'block' => [
+        'description' => 'Hash based on blockhash.io Still under development.',
+        'type' => 'float',
+        'unsigned' => TRUE,
+        'size' => 'big',
+        'not null' => FALSE,
+    ],
+      'perceptual' => [
+        'type' => 'float',
+        'unsigned' => TRUE,
+        'size' => 'big',
+        'not null' => FALSE,
+      ],
+    ],
+    'primary key' => ['fid'],
+    'indexes' => [
+      'difference_idx' => ['difference'],
+      'average_idx' => ['average'],
+      'block_idx' => ['block'],
+      'perceptual_idx' => ['perceptual'],
+    ],
+    'foreign keys' => [
+      'fid' => [
+        'table' => 'file_managed',
+        'columns' => ['fid' => 'fid'],
+      ],
+    ],
+  ];
+  return $schema;
+}

@@ -1,0 +1,5 @@
+services:
+  imagehash.commands:
+    class: Drupal\imagehash\Commands\ImageHashCommands
+    tags:
+      - { name: drush.command }
