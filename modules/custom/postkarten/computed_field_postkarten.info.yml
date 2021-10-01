@@ -1,0 +1,8 @@
+name: Postkarten Work-a-Rounds
+type: module
+description: Some smaller work-a-rounds, add-ons to enable some stuff for Postkarten project
+dependencies:
+  - computed_field:computed_field
+package: Field types
+core_version_requirement: ^8 || ^9
+hidden: false

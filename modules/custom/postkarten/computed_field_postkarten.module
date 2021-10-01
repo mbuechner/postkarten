@@ -1,0 +1,6 @@
+<?php
+
+function computed_field_field_breite_cm_compute($entity_type_manager, $entity, $fields, $delta) {
+	$value = 1.2345;
+	return $value;
+}

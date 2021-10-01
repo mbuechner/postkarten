@@ -26,15 +26,19 @@
         "drupal/backup_migrate": "^5.0",
         "drupal/better_exposed_filters": "^5.0@beta",
         "drupal/bfd": "^2.66",
+        "drupal/bootstrap": "^3.23",
         "drupal/cocoen_beforeafter": "^1.1",
         "drupal/colorbox": "^1.7",
+        "drupal/computed_field": "^3.0@alpha",
         "drupal/core-composer-scaffold": "^9.2",
         "drupal/core-project-message": "^9.2",
         "drupal/core-recommended": "^9.2",
         "drupal/date_popup": "^1.1",
         "drupal/devel": "^4.1",
         "drupal/dropzonejs": "^2.5",
+        "drupal/ds": "^3.13",
         "drupal/editablefields": "^1.0@beta",
+        "drupal/empty_fields": "^1.0@beta",
         "drupal/entity_browser": "^2.6",
         "drupal/entity_usage": "^2.0@beta",
         "drupal/facets": "^1.8",
@@ -93,13 +97,13 @@
             "core": [
                 "type:drupal-core"
             ],
+            "libraries/colorbox": [
+                "npm-asset/jquery-colorbox"
+            ],
             "libraries/{$name}": [
                 "type:drupal-library",
 	        "type:bower-asset",
         	"type:npm-asset"
-            ],
-            "libraries/colorbox": [
-                "npm-asset/jquery-colorbox"
             ],
             "modules/contrib/{$name}": [
                 "type:drupal-module"
