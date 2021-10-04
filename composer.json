@@ -49,6 +49,7 @@
         "drupal/media_bulk_upload": "^1.0@alpha",
         "drupal/media_duplicates": "^1.2",
         "drupal/paragraphs": "^1.12",
+        "drupal/redis": "^1.5",
         "drupal/search_api": "^1.20",
         "drupal/select2": "^1.13",
         "drupal/semanticviews": "^2.3",
