@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fec7ba291103625d56838e106ab014ac",
+    "content-hash": "e6fc237825c8a2afd26694e1b947fa37",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2167,49 +2167,6 @@
             }
         },
         {
-            "name": "drupal/bfd",
-            "version": "2.66.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/bfd.git",
-                "reference": "8.x-2.66"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/bfd-8.x-2.66.zip",
-                "reference": "8.x-2.66",
-                "shasum": "0c971d5c569660a2dddbe02e491517de116b690e"
-            },
-            "require": {
-                "drupal/core": "^8 || ^9"
-            },
-            "type": "drupal-theme",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-2.66",
-                    "datestamp": "1629225341",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "OCTOGONE.dev",
-                    "homepage": "https://www.drupal.org/user/3587404"
-                }
-            ],
-            "homepage": "https://www.drupal.org/project/bfd",
-            "support": {
-                "source": "https://git.drupalcode.org/project/bfd"
-            }
-        },
-        {
             "name": "drupal/bootstrap",
             "version": "3.23.0",
             "source": {
@@ -2265,60 +2222,6 @@
                 "docs": "https://drupal-bootstrap.org",
                 "issues": "https://www.drupal.org/project/issues/bootstrap",
                 "irc": "irc://irc.freenode.org/drupal-bootstrap"
-            }
-        },
-        {
-            "name": "drupal/cocoen_beforeafter",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/cocoen_beforeafter.git",
-                "reference": "8.x-1.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/cocoen_beforeafter-8.x-1.1.zip",
-                "reference": "8.x-1.1",
-                "shasum": "d8aeda49d0dc68648e63dbdf3de70936bf3774c8"
-            },
-            "require": {
-                "drupal/core": "^8 || ^9"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-1.1",
-                    "datestamp": "1591171328",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Your name here",
-                    "homepage": "https://www.drupal.org/u/lamp5",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Contributors",
-                    "homepage": "https://www.drupal.org/node/2986624/committers",
-                    "role": "Contributors"
-                }
-            ],
-            "description": "Cocoen Before After Image Formatter",
-            "homepage": "https://www.drupal.org/project/cocoen_beforeafter",
-            "keywords": [
-                "Drupal"
-            ],
-            "support": {
-                "source": "http://cgit.drupalcode.org/cocoen_beforeafter",
-                "issues": "https://www.drupal.org/project/issues/cocoen_beforeafter"
             }
         },
         {
@@ -2394,78 +2297,6 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/colorbox",
                 "issues": "https://www.drupal.org/project/issues/colorbox"
-            }
-        },
-        {
-            "name": "drupal/computed_field",
-            "version": "3.0.0-alpha2",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/computed_field.git",
-                "reference": "3.0.0-alpha2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/computed_field-3.0.0-alpha2.zip",
-                "reference": "3.0.0-alpha2",
-                "shasum": "74bdb563672a502c832d992a7a93be668f3ef1af"
-            },
-            "require": {
-                "drupal/core": "^8 || ^9"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "3.0.0-alpha2",
-                    "datestamp": "1604371297",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Agileware",
-                    "homepage": "https://www.drupal.org/user/89106"
-                },
-                {
-                    "name": "Moonshine",
-                    "homepage": "https://www.drupal.org/user/133705"
-                },
-                {
-                    "name": "Pedro Lozano",
-                    "homepage": "https://www.drupal.org/user/123766"
-                },
-                {
-                    "name": "colan",
-                    "homepage": "https://www.drupal.org/user/58704"
-                },
-                {
-                    "name": "dealancer",
-                    "homepage": "https://www.drupal.org/user/243418"
-                },
-                {
-                    "name": "markus_petrux",
-                    "homepage": "https://www.drupal.org/user/39593"
-                },
-                {
-                    "name": "nickcaballero",
-                    "homepage": "https://www.drupal.org/user/588336"
-                },
-                {
-                    "name": "ram4nd",
-                    "homepage": "https://www.drupal.org/user/601534"
-                }
-            ],
-            "description": "Defines a field type that allows values to be \"computed\" via PHP code.",
-            "homepage": "https://www.drupal.org/project/computed_field",
-            "support": {
-                "source": "https://git.drupalcode.org/project/computed_field"
             }
         },
         {
@@ -3267,90 +3098,6 @@
             }
         },
         {
-            "name": "drupal/editablefields",
-            "version": "1.0.0-beta1",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/editablefields.git",
-                "reference": "1.0.0-beta1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/editablefields-1.0.0-beta1.zip",
-                "reference": "1.0.0-beta1",
-                "shasum": "c4a5574921d8e6592acffbcbb96c019cdd9e9ba5"
-            },
-            "require": {
-                "drupal/core": "^8 || ^9"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "1.0.0-beta1",
-                    "datestamp": "1630582006",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Damien Tournoud",
-                    "homepage": "https://www.drupal.org/user/22211"
-                },
-                {
-                    "name": "Island Usurper",
-                    "homepage": "https://www.drupal.org/user/86683"
-                },
-                {
-                    "name": "Jan van Diepen",
-                    "homepage": "https://www.drupal.org/user/195578"
-                },
-                {
-                    "name": "andreiashu",
-                    "homepage": "https://www.drupal.org/user/212904"
-                },
-                {
-                    "name": "bengtan",
-                    "homepage": "https://www.drupal.org/user/132729"
-                },
-                {
-                    "name": "dags",
-                    "homepage": "https://www.drupal.org/user/1248930"
-                },
-                {
-                    "name": "gilmord",
-                    "homepage": "https://www.drupal.org/user/2913239"
-                },
-                {
-                    "name": "joelpittet",
-                    "homepage": "https://www.drupal.org/user/160302"
-                },
-                {
-                    "name": "krlucas",
-                    "homepage": "https://www.drupal.org/user/271780"
-                },
-                {
-                    "name": "markfoodyburton",
-                    "homepage": "https://www.drupal.org/user/114447"
-                },
-                {
-                    "name": "vishun",
-                    "homepage": "https://www.drupal.org/user/199418"
-                }
-            ],
-            "description": "Allows you to make some fields editable from the display.",
-            "homepage": "https://www.drupal.org/project/editablefields",
-            "support": {
-                "source": "https://git.drupalcode.org/project/editablefields"
-            }
-        },
-        {
             "name": "drupal/empty_fields",
             "version": "1.0.0-beta1",
             "source": {
@@ -3408,96 +3155,6 @@
             "homepage": "https://www.drupal.org/project/empty_fields",
             "support": {
                 "source": "https://git.drupalcode.org/project/empty_fields"
-            }
-        },
-        {
-            "name": "drupal/entity_browser",
-            "version": "2.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/entity_browser.git",
-                "reference": "8.x-2.6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/entity_browser-8.x-2.6.zip",
-                "reference": "8.x-2.6",
-                "shasum": "95cad4ce9620ccb4f02afa0e8b8bbf7c73fc5aac"
-            },
-            "require": {
-                "drupal/core": "^8.8 || ^9"
-            },
-            "require-dev": {
-                "drupal/embed": "~1.0",
-                "drupal/entity_embed": "1.x-dev",
-                "drupal/entity_reference_revisions": "1.x-dev",
-                "drupal/entityqueue": "1.x-dev",
-                "drupal/inline_entity_form": "1.x-dev",
-                "drupal/paragraphs": "1.x-dev",
-                "drupal/token": "~1.0"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-2.6",
-                    "datestamp": "1624401306",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Janez Urevc",
-                    "homepage": "https://github.com/slashrsm",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Primoz Hmeljak",
-                    "homepage": "https://github.com/primsi",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "See other contributors",
-                    "homepage": "https://www.drupal.org/node/1943336/committers",
-                    "role": "contributor"
-                },
-                {
-                    "name": "Drupal Media Team",
-                    "homepage": "https://www.drupal.org/user/3260690"
-                },
-                {
-                    "name": "Primsi",
-                    "homepage": "https://www.drupal.org/user/282629"
-                },
-                {
-                    "name": "marcingy",
-                    "homepage": "https://www.drupal.org/user/77320"
-                },
-                {
-                    "name": "oknate",
-                    "homepage": "https://www.drupal.org/user/471638"
-                },
-                {
-                    "name": "samuel.mortenson",
-                    "homepage": "https://www.drupal.org/user/2582268"
-                },
-                {
-                    "name": "slashrsm",
-                    "homepage": "https://www.drupal.org/user/744628"
-                }
-            ],
-            "description": "Entity browsing and selecting component.",
-            "homepage": "http://drupal.org/project/entity_browser",
-            "support": {
-                "source": "https://git.drupalcode.org/project/entity_browser",
-                "issues": "https://www.drupal.org/project/issues/entity_browser",
-                "irc": "irc://irc.freenode.org/drupal-contribute"
             }
         },
         {
@@ -3805,34 +3462,30 @@
             }
         },
         {
-            "name": "drupal/feeds",
-            "version": "3.0.0-alpha10",
+            "name": "drupal/fft",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
-                "url": "https://git.drupalcode.org/project/feeds.git",
-                "reference": "8.x-3.0-alpha10"
+                "url": "https://git.drupalcode.org/project/fft.git",
+                "reference": "8.x-2.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/feeds-8.x-3.0-alpha10.zip",
-                "reference": "8.x-3.0-alpha10",
-                "shasum": "84691c6258503c8d4afea5009dcd21bbd8292d49"
+                "url": "https://ftp.drupal.org/files/projects/fft-8.x-2.3.zip",
+                "reference": "8.x-2.3",
+                "shasum": "c15817c471bae1d0edf85f0449b62a8e6f9845ec"
             },
             "require": {
-                "drupal/core": "^8.8 || ^9"
-            },
-            "require-dev": {
-                "drupal/pathauto": "^1.8",
-                "drush/drush": "^9 || ^10"
+                "drupal/core": "^8 || ^9"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.0-alpha10",
-                    "datestamp": "1612455136",
+                    "version": "8.x-2.3",
+                    "datestamp": "1602314510",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -3842,74 +3495,14 @@
             ],
             "authors": [
                 {
-                    "name": "Dave Reid",
-                    "homepage": "https://www.drupal.org/user/53892"
-                },
-                {
-                    "name": "Ian Ward",
-                    "homepage": "https://www.drupal.org/user/4736"
-                },
-                {
-                    "name": "MegaChriz",
-                    "homepage": "https://www.drupal.org/user/654114"
-                },
-                {
-                    "name": "Will White",
-                    "homepage": "https://www.drupal.org/user/32237"
-                },
-                {
-                    "name": "alex_b",
-                    "homepage": "https://www.drupal.org/user/53995"
-                },
-                {
-                    "name": "e2thex",
-                    "homepage": "https://www.drupal.org/user/189123"
-                },
-                {
-                    "name": "febbraro",
-                    "homepage": "https://www.drupal.org/user/43670"
-                },
-                {
-                    "name": "franz",
-                    "homepage": "https://www.drupal.org/user/581844"
-                },
-                {
-                    "name": "jmiccolis",
-                    "homepage": "https://www.drupal.org/user/31731"
-                },
-                {
-                    "name": "joelpittet",
-                    "homepage": "https://www.drupal.org/user/160302"
-                },
-                {
-                    "name": "kking",
-                    "homepage": "https://www.drupal.org/user/24399"
-                },
-                {
-                    "name": "tobby",
-                    "homepage": "https://www.drupal.org/user/154797"
-                },
-                {
-                    "name": "tristanoneil",
-                    "homepage": "https://www.drupal.org/user/340659"
-                },
-                {
-                    "name": "twistor",
-                    "homepage": "https://www.drupal.org/user/473738"
-                },
-                {
-                    "name": "yhahn",
-                    "homepage": "https://www.drupal.org/user/264833"
+                    "name": "zipme_hkt",
+                    "homepage": "https://www.drupal.org/user/368236"
                 }
             ],
-            "description": "Aggregates RSS/Atom/RDF feeds, imports CSV files and more.",
-            "homepage": "https://www.drupal.org/project/feeds",
-            "keywords": [
-                "Drupal"
-            ],
+            "description": "Provides Formatter template for any field.",
+            "homepage": "https://www.drupal.org/project/fft",
             "support": {
-                "source": "https://git.drupalcode.org/project/feeds",
-                "issues": "https://www.drupal.org/project/issues/feeds"
+                "source": "https://git.drupalcode.org/project/fft"
             }
         },
         {
@@ -4143,105 +3736,36 @@
             }
         },
         {
-            "name": "drupal/filehash",
-            "version": "1.5.0",
+            "name": "drupal/filefield_paths",
+            "version": "1.0.0-beta5",
             "source": {
                 "type": "git",
-                "url": "https://git.drupalcode.org/project/filehash.git",
-                "reference": "8.x-1.5"
+                "url": "https://git.drupalcode.org/project/filefield_paths.git",
+                "reference": "8.x-1.0-beta5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/filehash-8.x-1.5.zip",
-                "reference": "8.x-1.5",
-                "shasum": "3b260fca1f77a003e3849709911ba36503ccb5ba"
+                "url": "https://ftp.drupal.org/files/projects/filefield_paths-8.x-1.0-beta5.zip",
+                "reference": "8.x-1.0-beta5",
+                "shasum": "06719aaeee87bf5abdfb75e0079fcaf0bbd996a6"
             },
             "require": {
-                "drupal/core": "^8.5 || ^9.0"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-1.5",
-                    "datestamp": "1615099468",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                },
-                "drush": {
-                    "services": {
-                        "drush.services.yml": "^9"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Mark Burdett (mfb)",
-                    "homepage": "https://www.drupal.org/u/mfb",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "File Hash module generates and stores MD5, SHA-1 and/or SHA-256 hashes for each file uploaded to the site.",
-            "homepage": "https://www.drupal.org/project/filehash",
-            "support": {
-                "source": "https://git.drupalcode.org/project/filehash",
-                "issues": "https://www.drupal.org/project/issues/filehash"
-            },
-            "funding": [
-                {
-                    "type": "github",
-                    "url": "https://github.com/sponsors/mfb"
-                },
-                {
-                    "type": "patreon",
-                    "url": "https://www.patreon.com/mfb"
-                }
-            ]
-        },
-        {
-            "name": "drupal/geolocation",
-            "version": "3.7.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/geolocation.git",
-                "reference": "8.x-3.7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/geolocation-8.x-3.7.zip",
-                "reference": "8.x-3.7",
-                "shasum": "796797ff4d3cc9d8b645bf2534d783d170ef77f5"
-            },
-            "require": {
-                "drupal/core": "^8.7.7 || ^9"
+                "drupal/core": "^8.8 || ^9"
             },
             "require-dev": {
-                "drupal/address": "*",
-                "drupal/geofield": "*",
-                "drupal/geolocation_demo": "*",
-                "drupal/geolocation_geometry": "*",
-                "drupal/geolocation_geometry_data": "*",
-                "drupal/geolocation_google_maps": "*",
-                "drupal/geolocation_google_maps_demo": "*",
-                "drupal/geolocation_google_static_maps": "*",
-                "drupal/geolocation_leaflet": "*",
-                "drupal/search_api": "*",
-                "drupal/search_api_location": "*",
-                "drupal/search_api_location_views": "*"
+                "drupal/ctools": "*",
+                "drupal/pathauto": "*",
+                "drupal/redirect": "*",
+                "drupal/token": "*"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.7",
-                    "datestamp": "1623052750",
+                    "version": "8.x-1.0-beta5",
+                    "datestamp": "1606806673",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -4251,19 +3775,18 @@
             ],
             "authors": [
                 {
-                    "name": "derjochenmeyer",
-                    "homepage": "https://www.drupal.org/u/derjochenmeyer"
+                    "name": "Deciphered",
+                    "homepage": "https://www.drupal.org/user/103796"
                 },
                 {
-                    "name": "cadamski",
-                    "homepage": "https://www.drupal.org/u/cadamski"
+                    "name": "voleger",
+                    "homepage": "https://www.drupal.org/user/3260314"
                 }
             ],
-            "description": "Provides a simple geolocation Drupal field type to store and display location data (lat, lng).",
-            "homepage": "https://www.drupal.org/project/geolocation",
+            "description": "Adds improved Token based file sorting and renaming functionalities.",
+            "homepage": "https://www.drupal.org/project/filefield_paths",
             "support": {
-                "source": "https://git.drupal.org/project/geolocation.git",
-                "issues": "https://www.drupal.org/project/issues/geolocation"
+                "source": "https://git.drupalcode.org/project/filefield_paths"
             }
         },
         {
@@ -5126,75 +4649,6 @@
             }
         },
         {
-            "name": "drupal/select2_multicheck",
-            "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/select2_multicheck.git",
-                "reference": "1.0.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/select2_multicheck-1.0.2.zip",
-                "reference": "1.0.2",
-                "shasum": "88dfb966e502d48aaf25cd7ae6a1fdf95cbe11d0"
-            },
-            "require": {
-                "drupal/core": "^8 || ^9",
-                "drupal/select2": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "1.0.2",
-                    "datestamp": "1631794225",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "-nrzr-",
-                    "homepage": "https://www.drupal.org/user/3522063"
-                },
-                {
-                    "name": "Miguelpamferreira",
-                    "homepage": "https://www.drupal.org/user/3548054"
-                },
-                {
-                    "name": "Nelson Alves",
-                    "homepage": "https://www.drupal.org/user/3557178"
-                },
-                {
-                    "name": "dgaspara",
-                    "homepage": "https://www.drupal.org/user/3557179"
-                },
-                {
-                    "name": "joaomarques736",
-                    "homepage": "https://www.drupal.org/user/3557181"
-                },
-                {
-                    "name": "ricardotenreiro",
-                    "homepage": "https://www.drupal.org/user/213132"
-                },
-                {
-                    "name": "tmiguelv",
-                    "homepage": "https://www.drupal.org/user/3612421"
-                }
-            ],
-            "description": "Provides Select2 Multi Checkboxes field widget.",
-            "homepage": "https://www.drupal.org/project/select2_multicheck",
-            "support": {
-                "source": "https://git.drupalcode.org/project/select2_multicheck"
-            }
-        },
-        {
             "name": "drupal/semanticviews",
             "version": "2.3.0",
             "source": {
@@ -5244,90 +4698,6 @@
             "homepage": "https://www.drupal.org/project/semanticviews",
             "support": {
                 "source": "https://git.drupalcode.org/project/semanticviews"
-            }
-        },
-        {
-            "name": "drupal/tagclouds",
-            "version": "2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/tagclouds.git",
-                "reference": "2.0.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/tagclouds-2.0.0.zip",
-                "reference": "2.0.0",
-                "shasum": "f3896c5a9f49898088ba7cc99e860ff945a927c2"
-            },
-            "require": {
-                "drupal/core": "^8.8 || ^9"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "2.0.0",
-                    "datestamp": "1599658831",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Andriy Parkhomiuk",
-                    "homepage": "https://www.drupal.org/user/2565426"
-                },
-                {
-                    "name": "MGParisi",
-                    "homepage": "https://www.drupal.org/user/243021"
-                },
-                {
-                    "name": "NitinSP",
-                    "homepage": "https://www.drupal.org/user/2198938"
-                },
-                {
-                    "name": "amourow",
-                    "homepage": "https://www.drupal.org/user/281473"
-                },
-                {
-                    "name": "andrey.troeglazov",
-                    "homepage": "https://www.drupal.org/user/3145389"
-                },
-                {
-                    "name": "joseph.olstad",
-                    "homepage": "https://www.drupal.org/user/1321830"
-                },
-                {
-                    "name": "martin107",
-                    "homepage": "https://www.drupal.org/user/2659379"
-                },
-                {
-                    "name": "mxr576",
-                    "homepage": "https://www.drupal.org/user/315522"
-                },
-                {
-                    "name": "nikolas.tatianenko",
-                    "homepage": "https://www.drupal.org/user/1579942"
-                },
-                {
-                    "name": "oriol_e9g",
-                    "homepage": "https://www.drupal.org/user/66422"
-                },
-                {
-                    "name": "scito",
-                    "homepage": "https://www.drupal.org/user/1094714"
-                }
-            ],
-            "description": "TagClouds makes weighted tag clouds from your taxonomy terms.",
-            "homepage": "https://www.drupal.org/project/tagclouds",
-            "support": {
-                "source": "https://git.drupalcode.org/project/tagclouds"
             }
         },
         {
@@ -5397,6 +4767,56 @@
             "homepage": "https://www.drupal.org/project/token",
             "support": {
                 "source": "https://git.drupalcode.org/project/token"
+            }
+        },
+        {
+            "name": "drupal/unused_modules",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/unused_modules.git",
+                "reference": "8.x-1.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/unused_modules-8.x-1.3.zip",
+                "reference": "8.x-1.3",
+                "shasum": "297194d031aedf064b07c5aee59fde4ddb453086"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.3",
+                    "datestamp": "1631866635",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "ndf",
+                    "homepage": "https://www.drupal.org/u/ndf"
+                }
+            ],
+            "description": "List modules and projects that are unused and safe to delete.",
+            "homepage": "http://drupal.org/project/unused_modules",
+            "support": {
+                "source": "https://git.drupalcode.org/project/unused_modules",
+                "issues": "https://www.drupal.org/project/issues/unused_modules"
             }
         },
         {
@@ -7177,18 +6597,6 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/v4.13.0"
             },
             "time": "2021-09-20T12:20:58+00:00"
-        },
-        {
-            "name": "npm-asset/cocoen",
-            "version": "2.0.5",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/cocoen/-/cocoen-2.0.5.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
         },
         {
             "name": "npm-asset/dropzone",
@@ -10968,12 +10376,10 @@
     "stability-flags": {
         "drupal/auto_entitylabel": 10,
         "drupal/better_exposed_filters": 10,
-        "drupal/computed_field": 15,
-        "drupal/editablefields": 10,
         "drupal/empty_fields": 10,
         "drupal/entity_usage": 10,
-        "drupal/feeds": 15,
         "drupal/field_validation": 10,
+        "drupal/filefield_paths": 10,
         "drupal/image_effects": 20,
         "drupal/media_bulk_upload": 15,
         "drupal/views_entity_form_field": 10,

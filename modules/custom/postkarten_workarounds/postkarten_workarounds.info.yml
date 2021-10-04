@@ -1,0 +1,8 @@
+name: Postkarten Work-a-rounds
+type: module
+description: Some smaller work-a-rounds, add-ons to enable some stuff for Postkarten project
+dependencies:
+package: Postkarten
+project: 'postkarten_workarounds'
+core_version_requirement: ^8 || ^9
+hidden: false
