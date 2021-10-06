@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Display Suite fluid 2 column template.
+ *
+ * Available variables:
+ * - outer_wrapper: outer wrapper element
+ * - left_wrapper: wrapper element around left region
+ * - right_wrapper: wrapper element around right region
+ * - attributes: layout attributes
+ * - left_attributes: attributes for left region
+ * - right_attributes: attributes for right region
+ * - left: content of left region
+ * - right: content of right region
+ */
+#}
+
+{% set left = left|render %}
+{% set right = right|render %}
+
+{% if (left and not right) or (right and not left) %}
+  {% set layout_class = 'group-one-column' %}
+{% endif %}
+
+<div class="col-xs-12 col-lg-6">
+ <div class="thumbnail">
+      {% if left %}
+           <{{ left_wrapper }}>
+               {{ left }}
+           </{{ left_wrapper }}>
+      {% endif %}
+      {{ title_suffix.contextual_links }}
+  <div class="caption">
+      <h3>Details</h3>
+        {% if right %}
+           <{{ right_wrapper }}>
+             {{ right }}
+           </{{ right_wrapper }}>
+        {% endif %}
+    </div>
+  </div>
+</div>
