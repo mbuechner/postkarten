@@ -1,0 +1,70 @@
+diff --git a/config/schema/entity_reference_facet_link.schema.yml b/config/schema/entity_reference_facet_link.schema.yml
+index 1a6d8e8..db1bd77 100644
+--- a/config/schema/entity_reference_facet_link.schema.yml
++++ b/config/schema/entity_reference_facet_link.schema.yml
+@@ -7,3 +7,6 @@ field.formatter.settings.entity_reference_facet_link:
+     facet:
+       type: string
+       label: 'The ID of the facet to which the field links'
++    raw_value_label:
++      type: string
++      label: 'Whether to use the referenced entity label as value in the facet query string'
+diff --git a/src/Plugin/Field/FieldFormatter/EntityReferenceFacetFormatterBase.php b/src/Plugin/Field/FieldFormatter/EntityReferenceFacetFormatterBase.php
+index 67d8ac3..610d54e 100644
+--- a/src/Plugin/Field/FieldFormatter/EntityReferenceFacetFormatterBase.php
++++ b/src/Plugin/Field/FieldFormatter/EntityReferenceFacetFormatterBase.php
+@@ -99,7 +99,10 @@ abstract class EntityReferenceFacetFormatterBase extends EntityReferenceFormatte
+    * {@inheritdoc}
+    */
+   public static function defaultSettings() {
+-    return ['facet' => ''] + parent::defaultSettings();
++    return [
++      'facet' => '',
++      'raw_value_label' => FALSE,
++    ] + parent::defaultSettings();
+   }
+ 
+   /**
+@@ -110,10 +113,8 @@ abstract class EntityReferenceFacetFormatterBase extends EntityReferenceFormatte
+     $facets = $this->facetStorage->loadMultiple();
+     $options = [];
+     foreach ($facets as $facet) {
+-      // Add a facet to the options only if that facet is faceting this field.
+-      if ($facet->getFieldIdentifier() == $this->fieldDefinition->getName()) {
+-        $options[$facet->id()] = $facet->label();
+-      }
++      // Add all available facets.
++      $options[$facet->id()] = $facet->label();
+     }
+ 
+     $elements['facet'] = [
+@@ -123,6 +124,13 @@ abstract class EntityReferenceFacetFormatterBase extends EntityReferenceFormatte
+       '#options' => $options,
+     ];
+ 
++    $elements['raw_value_label'] = [
++      '#title' => $this->t("Use the entity's label instead of the entity's id as value in the facet query string."),
++      '#type' => 'checkbox',
++      '#default_value' => $this->getSetting('raw_value_label'),
++      '#description' => $this->t("Check this if you have facets based on a referenced entity's field values."),
++    ];
++
+     return $elements;
+   }
+ 
+@@ -162,7 +170,14 @@ abstract class EntityReferenceFacetFormatterBase extends EntityReferenceFormatte
+     foreach ($this->getEntitiesToView($items, $langcode) as $delta => $entity) {
+       // Create a fake Result object from the field item so that we can pass
+       // it to the URL processor.
+-      $result = new Result($facet, $entity->id(), $entity->label(), 0);
++      $display_value = $entity->label();
++      if ($this->getSetting('raw_value_label')) {
++        $raw_value = $entity->label();
++      }
++      else {
++        $raw_value = $entity->id();
++      }
++      $result = new Result($facet, $raw_value, $display_value, 0);
+       $result = $url_processor->buildUrls($facet, [$result])[0];
+ 
+       // Invalidate the cache when the referenced entity or the facet source

@@ -156,8 +156,7 @@
                 "Changed tokenSeparator in Select2 module": "patches/Changed_tokenSeparator_in_Select2_module.patch"
             },
             "drupal/entity_reference_facet_link": {
-                "Fix: Only facets with the same name as the field are shown": "https://www.drupal.org/files/issues/2018-04-24/facets_with_same_name-2964898-2.patch",
-                "Fix: Support facets based on related fields": "https://www.drupal.org/files/issues/2018-04-19/2962509_support_related_fields_facets_02.patch"
+                "2962509_support_related_fields_facets_02 AND facets_with_same_name-2964898-2": "patches/2962509_support_related_fields_facets_02_AND_facets_with_same_name-2964898-2.patch"
             }
         }
     }
